@@ -259,7 +259,7 @@ Use this when the target board is already running and you don't need to reflash.
 
 ## HT32 Settings
 
-Open via the **Settings** button (⚙️) in the HT32 toolbar. Settings are stored in `.vscode/build-gen/project.settings.json` and auto-save after 3 seconds.
+Open via the **Settings** button in the HT32 toolbar. Settings are stored in `.vscode/build-gen/project.settings.json` and auto-save after 3 seconds.
 
 ### Compiler
 

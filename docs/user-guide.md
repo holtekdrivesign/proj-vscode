@@ -196,7 +196,7 @@ HT32 面板下方顯示專案的原始碼群組結構（Source Groups），與 K
 
 ## 清除
 
-- HT32 工具列點 **Clean**（🧹）
+- HT32 工具列點 **Clean**
 - 刪除 `.vscode/build-gen/build/` 目錄下所有編譯輸出
 
 ---
@@ -206,7 +206,7 @@ HT32 面板下方顯示專案的原始碼群組結構（Source Groups），與 K
 > 需要連接 Holtek e-Link32 Pro 或 e-Link32 Lite
 
 1. 確認 e-Link32 已連接並驅動正常
-2. HT32 工具列點 **Download**（☁️）
+2. HT32 工具列點 **Download**
 3. 韌體自動燒錄，Terminal 顯示進度
 
 <img src="10.jpg" width="500" style="border:1px solid #ccc; border-radius:4px; padding:3px;">
@@ -226,7 +226,7 @@ HT32 面板下方顯示專案的原始碼群組結構（Source Groups），與 K
 
 ### Debug（完整流程）
 
-1. HT32 工具列點 **Debug**（🐞）
+1. HT32 工具列點 **Debug**
 2. 自動編譯、燒錄，並啟動 OpenOCD + GDB 除錯工作階段
 
 
@@ -251,7 +251,7 @@ HT32 面板下方顯示專案的原始碼群組結構（Source Groups），與 K
 
 ## 專案設定 — 編譯
 
-HT32 工具列點 **Settings**（⚙️）開啟設定面板。
+HT32 工具列點 **Settings** 開啟設定面板。
 
 
 | 設定項目 | 說明 |
