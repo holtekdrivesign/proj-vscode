@@ -13,8 +13,8 @@ Holtek HT32 系列 Cortex-M 微控制器專用 VS Code 擴充功能
 | 除錯器 | Holtek e-Link32 Pro / Lite（推薦）；支援 J-Link、ST-Link |
 | FWLib | 需要；支援 HT32F1xxxx / HT32F4xxxx / HT32F5xxxx / HT32F490x1 / HT32F491x3 / HT32F493x5 |
 
-> **GCC 工具鏈**：擴充功能啟動時自動偵測；找不到時透過 winget 自動安裝
-> **OpenOCD**：已內建，無需另外安裝
+> **GCC 工具鏈**：擴充功能啟動時自動偵測；找不到時透過 winget 自動安裝<br>
+> **OpenOCD**：已內建，無需另外安裝<br>
 > **相依擴充功能**：安裝時自動一併安裝 **Cortex-Debug**（除錯介面）與 **Holtek Configuration Wizard**（設定精靈）
 
 ---
