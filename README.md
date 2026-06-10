@@ -262,75 +262,58 @@ Use this when the target board is already running and you don't need to reflash.
 
 ## HT32 Settings
 
-Open via the **Settings** button in the HT32 toolbar. Settings are stored in `.vscode/build-gen/project.settings.json` and auto-save after 3 seconds.
+Open via the **Settings** button in the HT32 toolbar. The panel has three tabs. Settings auto-save 3 seconds after any change and are stored in `.vscode/build-gen/project.settings.json`.
 
-### Compiler
+### Compiler Tab
 
 | Setting | Options |
 |---------|---------|
+| Output Name | Override the output filename (ELF/HEX) |
 | Optimization | `-O0` / `-O1` / `-O2` / `-O3` / `-Os` (default) / `-Og` |
 | Debug Info | `-g3` (default, full debug) / `-g` (standard) / `-g1` (line numbers only) / `-g0` (none, for release) |
 | Float ABI | `soft` (M0/M3) / `softfp` / `hard` (M4F) |
 | FPU | `none` / `fpv4-sp-d16` (M4F) / `fpv5-sp-d16` (M7) / `fpv5-d16` (M7) |
 | C Runtime | `nano` (newlib-nano) / `nosys` — can combine both |
-| LTO | Enable `-flto` |
-| Extra CFLAGS | Additional compiler flags, e.g. `-DDEBUG` |
-| Extra LDFLAGS | Additional linker flags |
 | printf float | Enable floating-point printf (`-u _printf_float`) |
 | scanf float | Enable floating-point scanf (`-u _scanf_float`) |
+| LTO | Enable `-flto` |
+| Extra Lib Names | Library names (`-lName`) with optional search path (`-L"dir"`) |
+| Extra Include Paths | Additional `-I` paths appended to CFLAGS/ASFLAGS |
+| Extra CFLAGS | Additional compiler flags, e.g. `-DDEBUG` |
+| Extra LDFLAGS | Additional linker flags |
 
 <img src="docs/15.png" width="500" style="border:1px solid #ccc; border-radius:4px; padding:3px;">
 
 ---
 
-## Settings — Libraries & Other
-
-### Extra Libraries
-
-| Setting | Description |
-|---------|-------------|
-| Extra Libs | Direct-link `.a` / `.o` file paths |
-| Extra Lib Names | Library names (`-lName`) |
-| Extra Lib Paths | Library search paths (`-L"dir"`) |
-
-### Other
-
-| Setting | Description |
-|---------|-------------|
-| Output Name | Override the output filename |
-| SVD File | Peripheral register SVD file (blank = auto-detect) |
-| DFP Path | Custom DFP path |
-| Post-Build | Command to run after a successful build |
-
-<img src="docs/19.png" width="600" style="border:1px solid #ccc; border-radius:4px; padding:3px;">
-
----
-
-## Settings — Debug / Flash
+### Debugger Tab
 
 | Setting | Options |
 |---------|---------|
 | Debug Interface | `CMSIS-DAP` (e-Link32) / `J-Link` / `ST-Link` |
 | Adapter Serial | Specify probe serial (blank = auto) |
 | Adapter Speed | Transfer rate in kHz (blank = interface default) |
+| OpenOCD Debug Level | 0 = off / 1–3 = increasing verbosity |
+| DFP Path | Custom DFP path for SVD auto-detection |
+| SVD File | Peripheral register SVD file (blank = auto-detect) |
 | Erase Mode | `erase_sector` (default) / `erase_chip` / `none` |
 | Flash Loaders | Add external flash loaders (e.g. SPI Flash) |
-| OpenOCD Debug Level | 0 = off / 1–3 = increasing verbosity |
 
 <img src="docs/16.png" width="700" style="border:1px solid #ccc; border-radius:4px; padding:3px;">
 <img src="docs/17.png" width="700" style="border:1px solid #ccc; border-radius:4px; padding:3px;">
 
 ---
 
-## Settings — Toolchain (Global)
-
-Stored in VS Code machine settings, shared across all projects:
+### Build Tab
 
 | Setting | Description |
 |---------|-------------|
-| GCC Path | `arm-none-eabi-gcc` path (blank = auto-detect or winget install) |
-| Make Path | `make` path (blank = use bundled Make) |
-| OpenOCD Path | OpenOCD path (blank = use bundled OpenOCD) |
+| Post-Build | Command to run after a successful build (working dir: `${workspaceFolder}`) |
+| GCC Path | `arm-none-eabi-gcc` path (blank = auto-detect) — machine-wide |
+| Make Path | `make` path (blank = use bundled Make) — machine-wide |
+| OpenOCD Path | OpenOCD path (blank = use bundled OpenOCD) — machine-wide |
+
+Toolchain paths are stored in VS Code User Settings and shared across all projects.
 
 ---
 

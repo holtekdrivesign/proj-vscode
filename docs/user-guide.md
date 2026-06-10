@@ -252,77 +252,56 @@ HT32 面板下方顯示專案的原始碼群組結構（Source Groups），與 K
 
 ---
 
-## 專案設定 — 編譯
+## 專案設定
 
-HT32 工具列點 **Settings** 開啟設定面板。
+HT32 工具列點 **Settings** 開啟設定面板，面板分為三個分頁：
 
+### Compiler 分頁
 
 | 設定項目 | 說明 |
 |----------|------|
+| Output Name | 覆蓋輸出檔案名稱 |
 | Optimization | `-O0` / `-O1` / `-O2` / `-O3` / `-Os`（預設）/ `-Og` |
 | Debug Info | `-g3`（預設，完整 debug）/ `-g`（標準）/ `-g1`（僅行號）/ `-g0`（無，release 用）|
 | Float ABI | `soft`（M0/M3）/ `softfp` / `hard`（M4F） |
 | FPU | `none` / `fpv4-sp-d16`（M4F）/ `fpv5-sp-d16`（M7）/ `fpv5-d16`（M7） |
 | C Runtime | `nano`（newlib-nano）/ `nosys`（不使用 syscalls）— 可同時勾選 |
-| LTO | 啟用 `-flto` |
-| Extra CFLAGS | 附加編譯旗標，例如 `-DDEBUG` |
-| Extra LDFLAGS | 附加連結旗標 |
 | printf float | 啟用浮點 printf（`-u _printf_float`） |
 | scanf float | 啟用浮點 scanf（`-u _scanf_float`） |
+| LTO | 啟用 `-flto` |
+| Extra Lib Names | 函式庫名稱（`-lName`） |
+| Extra Include Paths | 附加 include 搜尋路徑 |
+| Extra CFLAGS | 附加編譯旗標，例如 `-DDEBUG` |
+| Extra LDFLAGS | 附加連結旗標 |
 
 <img src="15.png" width="500" style="border:1px solid #ccc; border-radius:4px; padding:3px;">
 
----
-
-## 專案設定 — 函式庫 & 其他
-
-### 額外函式庫
-
-| 設定項目 | 說明 |
-|----------|------|
-| Extra Libs | 直接加入連結的 `.a` / `.o` 路徑 |
-| Extra Lib Names | 函式庫名稱（`-lName`） |
-| Extra Lib Paths | 函式庫搜尋路徑（`-L"dir"`） |
-
-<img src="19.png" width="600" style="border:1px solid #ccc; border-radius:4px; padding:3px;">
-
-### 其他
-
-| 設定項目 | 說明 |
-|----------|------|
-| Output Name | 覆蓋輸出檔案名稱 |
-| SVD File | 周邊暫存器 SVD 檔案（空白 = 自動偵測） |
-| DFP Path | 自訂 DFP 路徑 |
-| Post-Build | Build 後執行的命令 |
-
----
-
-## 專案設定 — 除錯 / 燒錄
+### Debugger 分頁
 
 | 設定項目 | 說明 |
 |----------|------|
 | Debug Interface | `CMSIS-DAP`（e-Link32）/ `J-Link` / `ST-Link` |
 | Adapter Serial | 指定除錯器序號（空白 = 自動） |
 | Adapter Speed | 傳輸速率 kHz（空白 = 介面預設） |
+| OpenOCD Debug Level | 0=關閉 / 1~3 逐漸詳細 |
+| DFP Path | 自訂 DFP 路徑 |
+| SVD File | 周邊暫存器 SVD 檔案（空白 = 自動偵測） |
 | Erase Mode | `erase_sector`（預設）/ `erase_chip` / `none` |
 | Flash Loaders | 附加外部 Flash Loader（例如 SPI Flash） |
-| OpenOCD Debug Level | 0=關閉 / 1~3 逐漸詳細 |
 
 <img src="16.png" width="700" style="border:1px solid #ccc; border-radius:4px; padding:3px;">
 <img src="17.png" width="700" style="border:1px solid #ccc; border-radius:4px; padding:3px;">
 
----
-
-## 專案設定 — 工具鏈路徑（全域）
-
-儲存於 VS Code 機器設定，所有專案共用：
+### Build 分頁
 
 | 設定項目 | 說明 |
 |----------|------|
+| Post-Build | Build 後執行的命令 |
 | GCC Path | `arm-none-eabi-gcc` 路徑（空白 = 自動偵測或 winget 安裝） |
 | Make Path | `make` 路徑（空白 = 使用 bundled Make） |
 | OpenOCD Path | OpenOCD 路徑（空白 = 使用 bundled OpenOCD） |
 
+> 工具鏈路徑（GCC / Make / OpenOCD）儲存於 VS Code 機器設定，**所有專案共用**，僅顯示於第一個專案的 Build 分頁。  
 > 專案設定儲存於 `.vscode/build-gen/project.settings.json`，3 秒後自動儲存。
 
 ---
